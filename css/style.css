@@ -1,0 +1,117 @@
+		*, *::before, *::after{
+	box-sizing: border-box;
+}
+
+body, html{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: Arial;
+}
+
+lottery-container{
+	width: 100%;
+	padding: 20px;
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+	display: block;
+	max-width: 100vw;
+}
+
+lottery-container images-container{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 90%;
+	margin: 10px auto;
+	height: 180px;
+	max-width: 1372px;
+	gap: 4px;
+	overflow: hidden;
+	position: relative;
+}
+
+lottery-container images-container .slot{
+	flex: 1;
+	height: 100%;
+	display: block;
+	position: relative;
+}
+
+@media (min-width: 1000px){
+	lottery-container images-container{
+		width: 100%;
+		height: 240px;
+	}
+}
+
+lottery-container .slot .image{
+	object-fit: cover;
+	height: 100%;
+	display: block;
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+lottery-container declaration{ display: none; }
+
+lottery-container images-container.blur{ animation: blur .2s linear 1 0s forwards; }
+lottery-container images-container.focus{ animation: focus .2s linear 1 0s forwards; }
+
+@keyframes blur{
+	from{ opacity: 1; }
+	to{ opacity: 0; }
+}
+
+@keyframes focus{
+	from{ opacity: 0; }
+	to{ opacity: 1; }
+}
+
+lottery-container button{
+	background-color: #4441d9;
+	padding: 13px;
+	margin: 8px auto;
+	display: block;
+	width: 300px;
+	max-width: 95%;
+	border: 0;
+	color: #fff;
+	border-radius: 10px;
+	font-size: 1.3em;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+lottery-container images-container .result{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2em;
+	color: #fff;
+}
+
+lottery-container images-container .result.won{ background-color: gold; }
+lottery-container images-container .result.lost{ background-color: red; }
+
+lottery-container images-container .result.lost:after{ content: 'Hai perso! Riprova'; }
+lottery-container images-container .result.won:after{ content: 'Hai vinto, complimenti.'; }
+
+button[disabled]{
+	cursor: text;
+	background-color: rgba(0, 0, 200);
+}
+
+.hidden{
+	display: none !important;
+}
